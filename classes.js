@@ -58,7 +58,20 @@ class Employee{
 */
 
 //Code Here
+class Manager extends Employee{
+  constructor (first_name, last_name, email, age){
+    super(first_name, last_name, email, age)
+    this.reports = []
+  }
 
+  hire(new_employee){
+    this.reports.push(new_employee)
+  }
+
+  fire(index){
+    this.reports.splice(index, 1, )
+  }
+}
 
 ////////// PROBLEM 3 //////////
 
