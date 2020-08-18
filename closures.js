@@ -186,7 +186,7 @@ function secretNumber() {
       secret += num
       return secret
     },
-    takeAwayFromSecret: (num) =>{
+    takeAwayFromSecret: (num) => {
       secret -= num
       return secret
     } // Code here
@@ -213,12 +213,24 @@ function secretNumber() {
   Fix the code below to log the desired output.
 */
 
+// function timeOutCounter() {
+//    for (let i = 0; i <= 5; i++) {
+//     setTimeout(function() {
+//       console.log(i)
+//     }, i * 1000);
+//    }
+// }
+
 function timeOutCounter() {
-   for (let i = 0; i <= 5; i++) {
-    setTimeout(function() {
-      console.log(i)
-    }, i * 1000);
-   }
+  for (var i = 0; i <= 5; i++) {
+    const memoryClock = () => {
+      let count = i
+      setTimeout(function() {
+        console.log(count)
+      }, i * 1000);
+    }
+    memoryClock()
+  }
 }
 
 // for (let i=0; i <=5; i++){
