@@ -155,16 +155,15 @@ var module = (function() {
   }
 
 
-  function publicMethod(){
-    return privateMethod();
-  }
+  // function publicMethod(){
+  //   return privateMethod();
+  // }
   // Anything that is being returned is made public and can be invoked from
   // outside our lexical scope
   return {
-    publicMethod
-    // publicMethod: () => {
-    //   privateMethod();
-    // }// Code here.
+    publicMethod(){
+      return privateMethod()
+    }
   };
 })();
 module.publicMethod()
