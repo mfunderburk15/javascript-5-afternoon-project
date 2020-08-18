@@ -214,14 +214,14 @@ function secretNumber() {
   Fix the code below to log the desired output.
 */
 
-function timeOutCounter(i) {
-  // for (var i = 0; i <= 5; i++) {
+function timeOutCounter() {
+   for (let i = 0; i <= 5; i++) {
     setTimeout(function() {
       console.log(i)
     }, i * 1000);
-  // }
+   }
 }
 
-for (let i=0; i <=5; i++){
- timeOutCounter(i);
-}
+// for (let i=0; i <=5; i++){
+//  timeOutCounter(i);
+// }
