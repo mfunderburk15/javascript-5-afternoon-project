@@ -23,7 +23,7 @@ function outer() {
 */
   
 // Code Here
-
+const inner = outer();
 
 
 //Once you do that, invoke inner.
@@ -52,7 +52,9 @@ function callFriend(name) {
 */
 
 //Code Here
+const callJake = callFriend("Jake");
 
+callJake("435-555-9248")
 
 
 ////////// PROBLEM 3 //////////
@@ -62,7 +64,12 @@ function callFriend(name) {
 */
 
 //Code Here
-
+function makeCounter(){
+  let num = 0;
+  return function(){
+    return num += 1;
+  }
+}
 
 
 //Uncomment this once you make your function
@@ -85,11 +92,16 @@ function callFriend(name) {
   http://stackoverflow.com/questions/17776940/javascript-module-pattern-with-example?answertab=votes#tab-top
 */
 
-function counterFactory(value) {
-  // Code here.
-
+function counterFactory(value) {// Code here.
+  function inc(){
+    return value += 1
+  }
+  function dec(){
+    return value -= 1
+  }
   return {
-
+    inc,
+    dec
   };
 }
 
@@ -113,9 +125,11 @@ function motivation( firstname, lastname ) {
   var welcomeText = "You're doing awesome, keep it up";
 
   // code message function here.
-
+  function message(){
+    return `You're doing awesome, keep it up ${firstname} ${lastname}.`
+  }
   //Uncommment this to return the value of your message function
-  //return message;
+  return message;
 }
 
 var greeting = motivation('Billy', 'Bob'); // 'You're doing awesome keep it up Billy Bob.
@@ -140,13 +154,20 @@ var module = (function() {
     return "Hi, I'm " + person.name + ", age " + person.age + " from " + person.location;
   }
 
+
+  function publicMethod(){
+    return privateMethod();
+  }
   // Anything that is being returned is made public and can be invoked from
   // outside our lexical scope
   return {
-    // Code here.
+    publicMethod
+    // publicMethod: () => {
+    //   privateMethod();
+    // }// Code here.
   };
 })();
-
+module.publicMethod()
 
 
 ////////// PROBLEM 7 //////////
@@ -162,7 +183,14 @@ function secretNumber() {
   var secret = 143;
 
   return {
-    // Code here
+    addToSecret: (num) => {
+      secret += num
+      return secret
+    },
+    takeAwayFromSecret: (num) =>{
+      secret -= num
+      return secret
+    } // Code here
   };
 }
 
@@ -186,11 +214,14 @@ function secretNumber() {
   Fix the code below to log the desired output.
 */
 
-function timeOutCounter() {
-  for (var i = 0; i <= 5; i++) {
+function timeOutCounter(i) {
+  // for (var i = 0; i <= 5; i++) {
     setTimeout(function() {
-      console.log(i);
+      console.log(i)
     }, i * 1000);
-  }
+  // }
 }
-timeOutCounter();
+
+for (let i=0; i <=5; i++){
+ timeOutCounter(i);
+}
