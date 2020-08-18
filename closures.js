@@ -232,6 +232,7 @@ function timeOutCounter() {
     memoryClock()
   }
 }
+timeOutCounter()
 
 // for (let i=0; i <=5; i++){
 //  timeOutCounter(i);
